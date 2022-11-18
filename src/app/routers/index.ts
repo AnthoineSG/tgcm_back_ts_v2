@@ -1,9 +1,13 @@
 import { Router } from 'express';
 
-import { homeController } from '../controllers';
+import brandRouter from './brand';
 
 const router = Router();
 
-router.get('/', homeController);
+router.use('/api', brandRouter);
+
+router.get('*', (req, res) => {
+  return res.status(404).json({ error: 'Not found' });
+});
 
 export default router;
