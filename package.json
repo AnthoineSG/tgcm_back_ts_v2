@@ -6,6 +6,10 @@
   "scripts": {
     "start": "npm run build && node build/index.js",
     "dev": "nodemon",
+    "create": "cd data && bash createDB.sh",
+    "deploy": "cd data/sqitch && bash sqitch-deploy.sh",
+    "revert": "cd data/sqitch && bash sqitch-revert.sh",
+    "verify": "cd data/sqitch && bash sqitch-verify.sh",
     "lint": "eslint . --ext .ts --fix",
     "format": "prettier --write \"**/*.+(js|ts|json)\"",
     "build": "rimraf ./build && tsc"
