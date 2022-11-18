@@ -16,6 +16,8 @@
     "semi": ["error", "always"],
     "no-multi-spaces": "error",
     "no-trailing-spaces": "error",
+    "max-len": ["error", { "code": 80, "tabWidth": 4 }],
+    "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0 }],
     "eol-last": ["error", "always"],
     "key-spacing": ["error", { "beforeColon": false }],
     "object-curly-spacing": ["error", "always", { "objectsInObjects": false }],

@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
 
-import { getAllBrandDatamapper } from '../../models/brand/getAllBrand';
+import { getOneBrandDatamapper } from '../../models';
 
-export type BrandsResponse =
+export type BrandResponse =
   | {
       id: number;
       brand_name: string;
@@ -13,19 +13,20 @@ export type BrandsResponse =
       company_id: number;
       created_at: Date;
       updated_at?: string | null;
-    }[]
+    }
   | {
       error: string;
     };
 
-export const getAllBrandController = async (
-  req: Request,
-  res: Response<BrandsResponse>
+export const getOneBrandController = async (
+  req: Request<{ id: string }>,
+  res: Response<BrandResponse>
 ) => {
   try {
-    const result = await getAllBrandDatamapper();
+    const id = req.params.id;
+    const result = await getOneBrandDatamapper(id);
 
-    if (!result[0]) {
+    if (!result) {
       return res.status(404).json({ error: 'Brand not found' });
     }
 
