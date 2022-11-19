@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 
 import { addProductInBasketDatamapper } from '../../models';
 
-import { IdParams, EmailParams, ProductInBasketResponse } from '../_types';
+import { IdParams, EmailParams, ProductInBasketResponse } from '../../types';
 
 export const addProductInBasketController = async (
   req: Request<IdParams, {}, EmailParams>,

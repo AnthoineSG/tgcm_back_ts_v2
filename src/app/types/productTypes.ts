@@ -1,7 +1,7 @@
 import { ErrorMessage } from './errorTypes';
 
 export interface Product {
-  id: number;
+  id?: number;
   name: string;
   description: string;
   image: string;
@@ -19,8 +19,8 @@ export interface Product {
   tva_id: number;
   brand_id: number;
   sub_category_id: number;
-  created_at: Date;
-  updated_at: Date | null;
+  created_at?: Date;
+  updated_at?: Date | null;
 }
 
 export interface ProductCategory extends Product {

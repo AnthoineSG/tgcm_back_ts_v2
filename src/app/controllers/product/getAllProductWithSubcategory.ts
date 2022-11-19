@@ -5,7 +5,7 @@ import { getAllProductWithSubcategoryDatamapper } from '../../models';
 import {
   SubcategoryNameParams,
   SubcategoryWithProductResponse,
-} from '../_types';
+} from '../../types';
 
 export const getAllProductWithSubcategoryController = async (
   req: Request<SubcategoryNameParams>,

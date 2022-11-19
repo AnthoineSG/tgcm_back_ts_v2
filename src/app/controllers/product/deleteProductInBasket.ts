@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 
 import { deleteProductInBasketDatamapper } from '../../models';
 
-import { BasketBody, ProductInBasketResponse } from '../_types';
+import { BasketBody, ProductInBasketResponse } from '../../types';
 
 export const deleteProductInbasketController = async (
   req: Request<{}, {}, BasketBody>,

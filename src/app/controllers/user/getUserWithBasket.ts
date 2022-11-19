@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 
 import { getUserWithBasketDatamapper } from '../../models';
 
-import { UserBasket, EmailParams } from '../_types';
+import { UserBasket, EmailParams } from '../../types';
 
 export const getUserWithBasketController = async (
   req: Request<EmailParams>,

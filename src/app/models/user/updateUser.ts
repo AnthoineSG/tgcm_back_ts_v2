@@ -1,32 +1,16 @@
 import { pool } from '../_config';
 
-export type NewUser = {
-  id: number;
-  firstname: string;
-  lastname: string;
-  email: string;
-  password: string;
-  birthday: string | null;
-  phone_number: string | null;
-  address: string | null;
-  postal_code: string | null;
-  city: string | null;
-  country: string | null;
-  created_at: Date;
-  updated_at: Date | null;
-};
+import { User } from '../../types';
 
-export const updateUserDatamapper = async (email: string, newUser: NewUser) => {
+export const updateUserDatamapper = async (email: string, newUser: User) => {
   const oldConfig = {
-    text: `
-      SELECT
-        *
-      FROM "public"."user"
+    text: `SELECT * FROM "public"."user"
       WHERE "email" = $1;`,
     values: [email],
   };
   const oldUser = await pool.query(oldConfig);
   if (oldUser.rowCount === 0) {
+    // eslint-disable-next-line quotes
     throw new Error("L'utilisateur n'existe pas !");
   }
 
@@ -68,30 +52,15 @@ export const updateUserDatamapper = async (email: string, newUser: NewUser) => {
   }
 
   const config = {
-    text: `UPDATE public."user"
-          SET
-            "firstname" = $1,
-            "lastname" = $2,
-            "birthday" = $3,
-            "password" = $4,
-            "phone_number" = $5,
-            "address" = $6,
-            "postal_code" = $7,
-            "city" = $8,
-            "country" = $9
-          WHERE "user"."email" = $10
-          RETURNING *;`,
+    text: `UPDATE public."user" SET
+        "firstname" = $1, "lastname" = $2, "birthday" = $3,
+        "password" = $4, "phone_number" = $5, "address" = $6,
+        "postal_code" = $7, "city" = $8, "country" = $9
+      WHERE "user"."email" = $10
+      RETURNING *;`,
     values: [
-      oldFirstname,
-      oldLastname,
-      oldBirthday,
-      oldPassword,
-      oldPhoneNumber,
-      oldAddress,
-      oldPostalCode,
-      oldCity,
-      oldCountry,
-      email,
+      oldFirstname, oldLastname, oldBirthday, oldPassword, oldPhoneNumber,
+      oldAddress, oldPostalCode, oldCity, oldCountry, email,
     ],
   };
   const result = await pool.query(config);

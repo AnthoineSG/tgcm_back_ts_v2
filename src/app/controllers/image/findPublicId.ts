@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 
 import { findPublicIdDatamapper } from '../../models';
 
-import { PublicIdParams } from '../_types';
+import { PublicIdParams } from '../../types';
 
 export const findProductIdController = async (
   req: Request<{}, {}, PublicIdParams>,

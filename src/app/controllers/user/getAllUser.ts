@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 
 import { getAllUserDatamapper } from '../../models';
 
-import { UsersResponse } from '../_types';
+import { UsersResponse } from '../../types';
 
 export const getAllUserController = async (
   req: Request,

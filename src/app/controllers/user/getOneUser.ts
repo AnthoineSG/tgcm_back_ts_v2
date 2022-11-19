@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 
 import { getOneUserDatamapper } from '../../models';
 
-import { UserResponse, EmailParams } from '../_types';
+import { UserResponse, EmailParams } from '../../types';
 
 export const getOneUserController = async (
   req: Request<EmailParams>,

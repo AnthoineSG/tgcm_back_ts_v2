@@ -12,7 +12,9 @@ export const addProductInBasketDatamapper = async (
   const idUser = resultUser.rows[0].id;
 
   const configInsertIntoBuy = {
-    text: 'INSERT INTO buy("user_id", "product_id") VALUES ($1, $2) RETURNING *;',
+    text: `INSERT INTO buy("user_id", "product_id")
+      VALUES ($1, $2)
+      RETURNING *;`,
     values: [idUser, productId],
   };
   const resultAddToBasket = await pool.query(configInsertIntoBuy);

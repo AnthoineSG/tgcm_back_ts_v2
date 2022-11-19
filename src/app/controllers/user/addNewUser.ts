@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 
 import { addNewUserDatamapper } from '../../models';
 
-import { User, UserResponse } from '../_types';
+import { User, UserResponse } from '../../types';
 
 export const addNewUserController = async (
   req: Request<{}, {}, User>,

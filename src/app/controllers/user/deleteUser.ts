@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 
 import { deleteUserDatamapper } from '../../models';
 
-import { EmailParams, UserResponse } from '../_types';
+import { EmailParams, UserResponse } from '../../types';
 
 export const deleteUserController = async (
   req: Request<EmailParams>,

@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 
 import { getOneBrandWithProductDatamapper } from '../../models/brand';
 
-import { IdParams, BrandWithProductsResponse } from '../_types';
+import { IdParams, BrandWithProductsResponse } from '../../types';
 
 export const getOneBrandWithProductController = async (
   req: Request<IdParams>,

@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 
 import { addProductWithImageDatamapper } from '../../models';
 
-import { Product } from '../_types';
+import { Product } from '../../types';
 
 export const addProductWithImageController = async (
   req: Request<{}, {}, Product>,
