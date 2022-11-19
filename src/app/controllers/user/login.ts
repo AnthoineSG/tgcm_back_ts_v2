@@ -5,33 +5,10 @@ import { chechUserInfosDatamapper } from '../../models';
 
 import { bcryptCompare } from '../../services/bcrypt/compare';
 
-export interface Result {
-  id: number;
-  firstname: string;
-  lastname: string;
-  birthday: string;
-  email: string;
-  phone_number: string;
-  address: string;
-  postal_code: string;
-  city: string;
-  country: string;
-  created_at: Date;
-  updated_at: Date;
-}
-
-export type LoginResponse =
-  | {
-      message: string;
-      accessToken: string;
-      result: Result;
-    }
-  | {
-      error: string;
-    };
+import { LoginResponse } from '../types';
 
 export const loginController = async (
-  req: Request,
+  req: Request<{}, {}, { email: string; password: string }>,
   res: Response<LoginResponse>
 ) => {
   try {

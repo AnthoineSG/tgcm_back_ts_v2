@@ -2,41 +2,7 @@ import { Request, Response } from 'express';
 
 import { updateUserDatamapper } from '../../models';
 
-export type NewUser = {
-  id: number;
-  firstname: string;
-  lastname: string;
-  email: string;
-  password: string;
-  birthday: string | null;
-  phone_number: string | null;
-  address: string | null;
-  postal_code: string | null;
-  city: string | null;
-  country: string | null;
-  created_at: Date;
-  updated_at: Date | null;
-};
-
-export type UpdateUserResponse =
-  | {
-      id: number;
-      firstname: string;
-      lastname: string;
-      email: string;
-      password: string;
-      birthday: string | null;
-      phone_number: string | null;
-      address: string | null;
-      postal_code: string | null;
-      city: string | null;
-      country: string | null;
-      created_at: Date;
-      updated_at: Date | null;
-    }
-  | {
-      error: string;
-    };
+import { UpdateUserResponse, NewUser } from '../types';
 
 export const updateUserController = async (
   req: Request<{ email: string }, {}, NewUser>,

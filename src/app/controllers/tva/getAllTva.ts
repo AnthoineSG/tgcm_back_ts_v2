@@ -2,16 +2,7 @@ import { Request, Response } from 'express';
 
 import { getAllTvaDatamapper } from '../../models';
 
-export type TvasResponse =
-  | {
-      id: number;
-      rate: number;
-      created_at: Date;
-      updated_at: Date | null;
-    }[]
-  | {
-      error: string;
-    };
+import { TvasResponse } from '../types';
 
 export const getAllTvaController = async (
   req: Request,

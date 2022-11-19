@@ -2,21 +2,7 @@ import { Request, Response } from 'express';
 
 import { getAllBrandDatamapper } from '../../models/brand/getAllBrand';
 
-export type BrandsResponse =
-  | {
-      id: number;
-      brand_name: string;
-      slogan: string;
-      logo: string;
-      activity_field: string;
-      delivery_cost: number;
-      company_id: number;
-      created_at: Date;
-      updated_at: string | null;
-    }[]
-  | {
-      error: string;
-    };
+import { BrandsResponse } from '../types';
 
 export const getAllBrandController = async (
   req: Request,

@@ -2,21 +2,7 @@ import { Request, Response } from 'express';
 
 import { getOneBrandDatamapper } from '../../models';
 
-export type BrandResponse =
-  | {
-      id: number;
-      brand_name: string;
-      slogan: string;
-      logo: string;
-      activity_field: string;
-      delivery_cost: number;
-      company_id: number;
-      created_at: Date;
-      updated_at: Date | null;
-    }
-  | {
-      error: string;
-    };
+import { BrandResponse } from '../types';
 
 export const getOneBrandController = async (
   req: Request<{ id: string }>,
