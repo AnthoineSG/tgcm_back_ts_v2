@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 
 import { getAllCompanyDatamapper } from '../../models';
 
-import { CompanysResponse } from '../types';
+import { CompanysResponse } from '../_types';
 
 export const getAllCompanyController = async (
   req: Request,

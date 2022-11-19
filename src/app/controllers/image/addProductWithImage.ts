@@ -2,10 +2,10 @@ import { Request, Response } from 'express';
 
 import { addProductWithImageDatamapper } from '../../models';
 
-import { BodyRequest } from '../types';
+import { Product } from '../_types';
 
 export const addProductWithImageController = async (
-  req: Request<{}, {}, BodyRequest>,
+  req: Request<{}, {}, Product>,
   res: Response
 ) => {
   try {
@@ -96,7 +96,7 @@ export const addProductWithImageController = async (
 
     const result = await addProductWithImageDatamapper(image, body);
 
-    if (!result[0]) {
+    if (!result) {
       return res.status(404).json({ error: 'Image not found' });
     }
 

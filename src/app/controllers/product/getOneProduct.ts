@@ -2,10 +2,10 @@ import { Request, Response } from 'express';
 
 import { getOneProductDatamapper } from '../../models';
 
-import { ProductResponse } from '../types';
+import { IdParams, ProductResponse } from '../_types';
 
 export const getOneProductController = async (
-  req: Request<{ id: string }>,
+  req: Request<IdParams>,
   res: Response<ProductResponse>
 ) => {
   try {

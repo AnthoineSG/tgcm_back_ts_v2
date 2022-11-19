@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 
 import { getAllTvaDatamapper } from '../../models';
 
-import { TvasResponse } from '../types';
+import { TvasResponse } from '../_types';
 
 export const getAllTvaController = async (
   req: Request,

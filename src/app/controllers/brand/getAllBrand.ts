@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 
 import { getAllBrandDatamapper } from '../../models/brand/getAllBrand';
 
-import { BrandsResponse } from '../types';
+import { BrandsResponse } from '../_types';
 
 export const getAllBrandController = async (
   req: Request,

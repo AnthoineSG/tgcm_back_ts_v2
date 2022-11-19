@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 
 import { getRandomProductDatamapper } from '../../models';
 
-import { RandomResponse } from '../types';
+import { RandomResponse } from '../_types';
 
 export const getRandomProductController = async (
   req: Request,

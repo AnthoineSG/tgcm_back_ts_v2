@@ -2,8 +2,10 @@ import { Request, Response } from 'express';
 
 import { uploadImageDatamapper } from '../../models';
 
+import { ImagePathParams } from '../_types';
+
 export const uploadImageController = async (
-  req: Request<{}, {}, { image: string }>,
+  req: Request<{}, {}, ImagePathParams>,
   res: Response
 ) => {
   try {

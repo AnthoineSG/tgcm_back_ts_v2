@@ -2,10 +2,13 @@ import { Request, Response } from 'express';
 
 import { getAllProductWithSubcategoryDatamapper } from '../../models';
 
-import { SubcategoryWithProductResponse } from '../types';
+import {
+  SubcategoryNameParams,
+  SubcategoryWithProductResponse,
+} from '../_types';
 
 export const getAllProductWithSubcategoryController = async (
-  req: Request<{ name: string }>,
+  req: Request<SubcategoryNameParams>,
   res: Response<SubcategoryWithProductResponse>
 ) => {
   try {

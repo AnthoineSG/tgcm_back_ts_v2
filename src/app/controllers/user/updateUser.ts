@@ -2,11 +2,11 @@ import { Request, Response } from 'express';
 
 import { updateUserDatamapper } from '../../models';
 
-import { UpdateUserResponse, NewUser } from '../types';
+import { EmailParams, User, UserResponse } from '../_types';
 
 export const updateUserController = async (
-  req: Request<{ email: string }, {}, NewUser>,
-  res: Response<UpdateUserResponse>
+  req: Request<EmailParams, {}, User>,
+  res: Response<UserResponse>
 ) => {
   try {
     const email = req.params.email;

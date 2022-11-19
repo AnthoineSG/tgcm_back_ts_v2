@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 
 import { getAllSubcategoryDatamapper } from '../../models';
 
-import { SubcategorysResponse } from '../types';
+import { SubcategorysResponse } from '../_types';
 
 export const getAllSubcategoryController = async (
   req: Request,

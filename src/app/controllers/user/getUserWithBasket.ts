@@ -2,10 +2,10 @@ import { Request, Response } from 'express';
 
 import { getUserWithBasketDatamapper } from '../../models';
 
-import { UserBasket } from '../types';
+import { UserBasket, EmailParams } from '../_types';
 
 export const getUserWithBasketController = async (
-  req: Request<{ email: string }>,
+  req: Request<EmailParams>,
   res: Response<UserBasket>
 ) => {
   try {

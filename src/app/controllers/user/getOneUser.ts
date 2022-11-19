@@ -2,10 +2,10 @@ import { Request, Response } from 'express';
 
 import { getOneUserDatamapper } from '../../models';
 
-import { UserResponse } from '../types';
+import { UserResponse, EmailParams } from '../_types';
 
 export const getOneUserController = async (
-  req: Request<{ email: string }>,
+  req: Request<EmailParams>,
   res: Response<UserResponse>
 ) => {
   try {

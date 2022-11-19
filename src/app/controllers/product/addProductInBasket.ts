@@ -2,11 +2,11 @@ import { Request, Response } from 'express';
 
 import { addProductInBasketDatamapper } from '../../models';
 
-import { AddProductResponse } from '../types';
+import { IdParams, EmailParams, ProductInBasketResponse } from '../_types';
 
 export const addProductInBasketController = async (
-  req: Request<{ id: string }, {}, { email: string }>,
-  res: Response<AddProductResponse>
+  req: Request<IdParams, {}, EmailParams>,
+  res: Response<ProductInBasketResponse>
 ) => {
   try {
     const productId = req.params.id;

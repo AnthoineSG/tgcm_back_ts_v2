@@ -5,10 +5,10 @@ import { chechUserInfosDatamapper } from '../../models';
 
 import { bcryptCompare } from '../../services/bcrypt/compare';
 
-import { LoginResponse } from '../types';
+import { ConnectBody, LoginResponse } from '../_types';
 
 export const loginController = async (
-  req: Request<{}, {}, { email: string; password: string }>,
+  req: Request<{}, {}, ConnectBody>,
   res: Response<LoginResponse>
 ) => {
   try {
