@@ -2,7 +2,10 @@ import { Request, Response } from 'express';
 
 import { findPublicIdDatamapper } from '../../models';
 
-export const findProductIdController = async (req: Request, res: Response) => {
+export const findProductIdController = async (
+  req: Request<{}, {}, {public_id: string}>,
+  res: Response
+) => {
   try {
     const publicId = req.body.public_id;
 
