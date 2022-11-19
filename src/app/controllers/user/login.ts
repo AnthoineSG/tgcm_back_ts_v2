@@ -5,9 +5,32 @@ import { chechUserInfosDatamapper } from '../../models';
 
 import { bcryptCompare } from '../../services/bcrypt/compare';
 
+export interface Result {
+  id: number;
+  firstname: string;
+  lastname: string;
+  birthday: string;
+  email: string;
+  phone_number: string;
+  address: string;
+  postal_code: string;
+  city: string;
+  country: string;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export type LoginResponse = {
+  message: string;
+  accessToken: string;
+  result: Result;
+} | {
+  error: string
+}
+
 export const loginController = async (
   req: Request,
-  res: Response
+  res: Response<LoginResponse>
 ) => {
   try {
     // ! check body
@@ -15,14 +38,14 @@ export const loginController = async (
     const password = req.body.password;
     if (!email || !password) {
       return res.status(404).json({
-        message: 'error il manque des informations'
+        error: 'error il manque des informations'
       });
     }
 
     // ! check user existe with email and get result
     const result = await chechUserInfosDatamapper(email);
     if (!result) {
-      return res.status(500).json({ message: 'user inconnu en BDD' });
+      return res.status(500).json({ error: 'user inconnu en BDD' });
     }
 
     // ! check password and delete
@@ -30,7 +53,7 @@ export const loginController = async (
     const checkPassword = await bcryptCompare(password, userPasswordToCheck);
     if (checkPassword === false) {
       return res.status(401).json({
-        message: 'Le mot de passe est incorect !'
+        error: 'Le mot de passe est incorect !'
       });
     }
     delete result.password;
