@@ -2,9 +2,18 @@ import { Request, Response } from 'express';
 
 import { getAllCategoryWithSubcategoryDatamapper } from '../../models';
 
+export type CategoryWithSubcategorysResponse =
+  | {
+      category: string;
+      sub_category: string[];
+    }[]
+  | {
+      error: string;
+    };
+
 export const getAllCategoryWithSubcategoryController = async (
   req: Request,
-  res: Response
+  res: Response<CategoryWithSubcategorysResponse>
 ) => {
   try {
     const result = await getAllCategoryWithSubcategoryDatamapper();

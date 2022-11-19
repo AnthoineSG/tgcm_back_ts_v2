@@ -2,7 +2,21 @@ import { Request, Response } from 'express';
 
 import { getAllCategoryDatamapper } from '../../models';
 
-export const getAllCategoryController = async (req: Request, res: Response) => {
+export type CategorysResponse =
+  | {
+      id: number;
+      name: string;
+      created_at: Date;
+      updated_at: Date | null;
+    }[]
+  | {
+      error: string;
+    };
+
+export const getAllCategoryController = async (
+  req: Request,
+  res: Response<CategorysResponse>
+) => {
   try {
     const result = await getAllCategoryDatamapper();
 

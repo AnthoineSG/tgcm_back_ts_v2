@@ -12,7 +12,7 @@ export type BrandsResponse =
       delivery_cost: number;
       company_id: number;
       created_at: Date;
-      updated_at?: string | null;
+      updated_at: string | null;
     }[]
   | {
       error: string;
