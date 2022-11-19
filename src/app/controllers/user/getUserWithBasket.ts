@@ -23,21 +23,23 @@ export type ProductBasket = {
   sub_category_id: number;
   created_at: Date;
   updated_at: Date | null;
-}
+};
 
-export type UserBasket = {
-  random_id: string;
-  user_id: number;
-  firstname: string;
-  lastname: string;
-  email: string;
-  total_delivery: string;
-  total_ttc: string;
-  final_price: string;
-  product: ProductBasket[];
-} | {
-  error: string
-}
+export type UserBasket =
+  | {
+      random_id: string;
+      user_id: number;
+      firstname: string;
+      lastname: string;
+      email: string;
+      total_delivery: string;
+      total_ttc: string;
+      final_price: string;
+      product: ProductBasket[];
+    }
+  | {
+      error: string;
+    };
 
 export const getUserWithBasketController = async (
   req: Request<{ email: string }>,

@@ -2,23 +2,25 @@ import { Request, Response } from 'express';
 
 import { getAllUserDatamapper } from '../../models';
 
-export type UsersResponse = {
-  id: number;
-  firstname: string;
-  lastname: string;
-  email: string;
-  password: string;
-  birthday: string | null;
-  phone_number: string | null;
-  address: string | null;
-  postal_code: string | null;
-  city: string | null;
-  country: string | null;
-  created_at: Date;
-  updated_at: Date | null;
-}[] | {
-  error: string
-}
+export type UsersResponse =
+  | {
+      id: number;
+      firstname: string;
+      lastname: string;
+      email: string;
+      password: string;
+      birthday: string | null;
+      phone_number: string | null;
+      address: string | null;
+      postal_code: string | null;
+      city: string | null;
+      country: string | null;
+      created_at: Date;
+      updated_at: Date | null;
+    }[]
+  | {
+      error: string;
+    };
 
 export const getAllUserController = async (
   req: Request,

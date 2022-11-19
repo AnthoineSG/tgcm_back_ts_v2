@@ -1,9 +1,6 @@
 import { Request, Response } from 'express';
 
-export const logoutController = async (
-  req: Request,
-  res: Response
-) => {
+export const logoutController = async (req: Request, res: Response) => {
   try {
     // if (!req.session.user) {
     //   return res.status(400).json({ message: 'user n\'est pas connecté' });

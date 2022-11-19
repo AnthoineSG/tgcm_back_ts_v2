@@ -14,7 +14,7 @@ export type User = {
   country: string | null;
   created_at: Date;
   updated_at: Date | null;
-}
+};
 
 export const addNewUserDatamapper = async (user: User) => {
   const config = {
@@ -41,8 +41,8 @@ export const addNewUserDatamapper = async (user: User) => {
       user.address,
       user.postal_code,
       user.city,
-      user.country
-    ]
+      user.country,
+    ],
   };
   const savedUser = await pool.query(config);
   return savedUser.rows[0];

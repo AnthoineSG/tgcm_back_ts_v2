@@ -20,13 +20,15 @@ export interface Result {
   updated_at: Date;
 }
 
-export type LoginResponse = {
-  message: string;
-  accessToken: string;
-  result: Result;
-} | {
-  error: string
-}
+export type LoginResponse =
+  | {
+      message: string;
+      accessToken: string;
+      result: Result;
+    }
+  | {
+      error: string;
+    };
 
 export const loginController = async (
   req: Request,
@@ -38,7 +40,7 @@ export const loginController = async (
     const password = req.body.password;
     if (!email || !password) {
       return res.status(404).json({
-        error: 'error il manque des informations'
+        error: 'error il manque des informations',
       });
     }
 
@@ -53,7 +55,7 @@ export const loginController = async (
     const checkPassword = await bcryptCompare(password, userPasswordToCheck);
     if (checkPassword === false) {
       return res.status(401).json({
-        error: 'Le mot de passe est incorect !'
+        error: 'Le mot de passe est incorect !',
       });
     }
     delete result.password;
@@ -64,11 +66,9 @@ export const loginController = async (
       id: result.id,
       email: result.email,
     };
-    const accessToken = jwt.sign(
-      userInfosToken,
-      JwtAccessToken,
-      { expiresIn: '10m' }
-    );
+    const accessToken = jwt.sign(userInfosToken, JwtAccessToken, {
+      expiresIn: '10m',
+    });
 
     // ! store and return result
     // req.session.user = result;
@@ -77,7 +77,7 @@ export const loginController = async (
     return res.status(200).json({
       message: 'user connecté',
       accessToken,
-      result
+      result,
     });
   } catch (error) {
     return res.status(500).json({ error: 'Somthing went wrong' });

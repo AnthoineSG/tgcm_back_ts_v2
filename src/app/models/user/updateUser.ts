@@ -14,7 +14,7 @@ export type NewUser = {
   country: string | null;
   created_at: Date;
   updated_at: Date | null;
-}
+};
 
 export const updateUserDatamapper = async (email: string, newUser: NewUser) => {
   const oldConfig = {
@@ -23,11 +23,11 @@ export const updateUserDatamapper = async (email: string, newUser: NewUser) => {
         *
       FROM "public"."user"
       WHERE "email" = $1;`,
-    values: [email]
+    values: [email],
   };
   const oldUser = await pool.query(oldConfig);
   if (oldUser.rowCount === 0) {
-    throw new Error('L\'utilisateur n\'existe pas !');
+    throw new Error("L'utilisateur n'existe pas !");
   }
 
   let oldFirstname = oldUser.rows[0].firstname;
@@ -91,8 +91,8 @@ export const updateUserDatamapper = async (email: string, newUser: NewUser) => {
       oldPostalCode,
       oldCity,
       oldCountry,
-      email
-    ]
+      email,
+    ],
   };
   const result = await pool.query(config);
   return result.rows[0];

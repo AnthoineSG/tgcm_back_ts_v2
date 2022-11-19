@@ -16,25 +16,27 @@ export type NewUser = {
   country: string | null;
   created_at: Date;
   updated_at: Date | null;
-}
+};
 
-export type UpdateUserResponse = {
-  id: number;
-  firstname: string;
-  lastname: string;
-  email: string;
-  password: string;
-  birthday: string | null;
-  phone_number: string | null;
-  address: string | null;
-  postal_code: string | null;
-  city: string | null;
-  country: string | null;
-  created_at: Date;
-  updated_at: Date | null;
-} | {
-  error: string
-}
+export type UpdateUserResponse =
+  | {
+      id: number;
+      firstname: string;
+      lastname: string;
+      email: string;
+      password: string;
+      birthday: string | null;
+      phone_number: string | null;
+      address: string | null;
+      postal_code: string | null;
+      city: string | null;
+      country: string | null;
+      created_at: Date;
+      updated_at: Date | null;
+    }
+  | {
+      error: string;
+    };
 
 export const updateUserController = async (
   req: Request<{ email: string }, {}, NewUser>,
