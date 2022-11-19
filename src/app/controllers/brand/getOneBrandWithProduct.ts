@@ -43,6 +43,11 @@ export const getOneBrandWithProductController = async (
   try {
     const id = req.params.id;
     const result = await getOneBrandWithProductDatamapper(id);
+
+    if (!result) {
+      return res.status(404).json({ error: 'Brand not found' });
+    }
+
     return res.status(200).json(result);
   } catch (error) {
     return res.status(500).json({ error: 'Somthing went wrong' });

@@ -1,9 +1,9 @@
 import { pool } from '../_config';
 
 export const getAllCompanyDatamapper = async () => {
-  const query = {
+  const config = {
     text: 'SELECT * FROM "company";',
   };
-  const result = await pool.query(query);
+  const result = await pool.query(config);
   return result.rows;
 };

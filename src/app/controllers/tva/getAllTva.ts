@@ -19,7 +19,7 @@ export const getAllTvaController = async (
     const result = await getAllTvaDatamapper();
 
     if (!result[0]) {
-      return res.status(404).json({ error: 'Company not found' });
+      return res.status(404).json({ error: 'Tva not found' });
     }
 
     return res.status(200).json(result);

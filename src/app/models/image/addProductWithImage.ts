@@ -31,7 +31,7 @@ export const addProductWithImageDatamapper = async (
   };
   const { url } = await cloud.uploader.upload(imagePath, options);
 
-  const query = {
+  const config = {
     text: `INSERT INTO "public"."product" (
             "name",
             "description",
@@ -90,7 +90,7 @@ export const addProductWithImageDatamapper = async (
       body.sub_category_id,
     ],
   };
-  const result = await pool.query(query);
+  const result = await pool.query(config);
 
   return result.rows[0];
 };
