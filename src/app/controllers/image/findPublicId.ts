@@ -9,7 +9,7 @@ export const findProductIdController = async (req: Request, res: Response) => {
     const result = await findPublicIdDatamapper(publicId);
 
     if (!result[0]) {
-      return res.status(404).json({ error: 'Company not found' });
+      return res.status(404).json({ error: 'Image not found' });
     }
 
     return res.status(200).json(result);

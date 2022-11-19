@@ -95,7 +95,7 @@ export const addProductWithImageController = async (
     const result = await addProductWithImageDatamapper(image, body);
 
     if (!result[0]) {
-      return res.status(404).json({ error: 'Company not found' });
+      return res.status(404).json({ error: 'Image not found' });
     }
 
     return res.status(200).json(result);
