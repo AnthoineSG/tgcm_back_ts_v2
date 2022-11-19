@@ -2,16 +2,18 @@ import { Request, Response } from 'express';
 
 import { deleteProductInBasketDatamapper } from '../../models';
 
-export type DeleteProductResponse = {
-  id: number;
-  user_id: number;
-  product_id: number;
-} | {
-  error: string
-}
+export type DeleteProductResponse =
+  | {
+      id: number;
+      user_id: number;
+      product_id: number;
+    }
+  | {
+      error: string;
+    };
 
 export const deleteProductInbasketController = async (
-  req: Request<{}, {}, { product_id: string, user_id: string }>,
+  req: Request<{}, {}, { product_id: string; user_id: string }>,
   res: Response<DeleteProductResponse>
 ) => {
   try {

@@ -18,7 +18,7 @@ export type Body = {
   tva_id: number;
   brand_id: number;
   sub_category_id: number;
-}
+};
 
 export const addProductWithImageDatamapper = async (
   imagePath: string,

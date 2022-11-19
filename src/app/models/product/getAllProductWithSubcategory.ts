@@ -12,7 +12,7 @@ export const getAllProductWithSubcategoryDatamapper = async (name: string) => {
             ON "sub_category"."id" = "product"."sub_category_id"
           WHERE "sub_category"."name" = $1
           GROUP BY "sub_category"."name";`,
-    values: [name]
+    values: [name],
   };
   const result = await pool.query(config);
   return result.rows[0];

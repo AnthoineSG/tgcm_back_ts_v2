@@ -2,14 +2,16 @@ import { Request, Response } from 'express';
 
 import { getOneTvaDatamapper } from '../../models';
 
-export type TvaResponse = {
-  id: number;
-  rate: number;
-  created_at: Date;
-  updated_at: Date | null;
-} | {
-  error: string
-}
+export type TvaResponse =
+  | {
+      id: number;
+      rate: number;
+      created_at: Date;
+      updated_at: Date | null;
+    }
+  | {
+      error: string;
+    };
 
 export const getOneTvaController = async (
   req: Request,

@@ -29,14 +29,16 @@ export type Product = {
   sub_category_id: number;
   created_at: Date;
   updated_at: Date | null;
-}
+};
 
-export type SubcategoryWithProductResponse = {
-  sub_category_name: string;
-  product: Product[];
-} | {
-  error: string
-}
+export type SubcategoryWithProductResponse =
+  | {
+      sub_category_name: string;
+      product: Product[];
+    }
+  | {
+      error: string;
+    };
 
 export const getAllProductWithSubcategoryController = async (
   req: Request<{ name: string }>,

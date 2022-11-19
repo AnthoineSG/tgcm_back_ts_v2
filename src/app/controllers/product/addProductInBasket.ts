@@ -2,13 +2,15 @@ import { Request, Response } from 'express';
 
 import { addProductInBasketDatamapper } from '../../models';
 
-export type AddProductResponse = {
-  id: number;
-  user_id: number;
-  product_id: number;
-} | {
-  error: string
-}
+export type AddProductResponse =
+  | {
+      id: number;
+      user_id: number;
+      product_id: number;
+    }
+  | {
+      error: string;
+    };
 
 export const addProductInBasketController = async (
   req: Request<{ id: string }, {}, { email: string }>,

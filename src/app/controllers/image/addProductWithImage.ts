@@ -20,7 +20,7 @@ export type BodyRequest = {
   tva_id: number;
   brand_id: number;
   sub_category_id: number;
-}
+};
 
 export const addProductWithImageController = async (
   req: Request<{}, {}, BodyRequest>,

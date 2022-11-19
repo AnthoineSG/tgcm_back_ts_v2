@@ -3,7 +3,7 @@ import { Router } from 'express';
 import {
   uploadImageController,
   findProductIdController,
-  addProductWithImageController
+  addProductWithImageController,
 } from '../../controllers';
 
 const imageRouter = Router();
