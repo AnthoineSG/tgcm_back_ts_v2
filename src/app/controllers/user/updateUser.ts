@@ -2,6 +2,8 @@ import { Request, Response } from 'express';
 
 import { updateUserDatamapper } from '../../models';
 
+import { bcryptChiffrage } from '../../services';
+
 import { EmailParams, User, UserResponse } from '../../types';
 
 export const updateUserController = async (
@@ -10,9 +12,16 @@ export const updateUserController = async (
 ) => {
   try {
     const email = req.params.email;
-    const oldUser = req.body;
+    const newUser = req.body;
 
-    const result = await updateUserDatamapper(email, oldUser);
+    if (newUser.password) {
+      //* On passe le mdp en clair a la fonction bcrypt
+      const newUserChiffredPassword = await bcryptChiffrage(newUser.password);
+      //* On applique le mdp chiffrer a la place du mdp en clair sur les data de l'utilisateur
+      newUser.password = newUserChiffredPassword;
+    }
+
+    const result = await updateUserDatamapper(email, newUser);
 
     if (!result) {
       return res.status(404).json({ error: 'User not found' });

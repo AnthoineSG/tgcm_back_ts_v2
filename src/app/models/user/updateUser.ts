@@ -9,9 +9,6 @@ export const updateUserDatamapper = async (email: string, newUser: User) => {
     values: [email],
   };
   const oldUser = await pool.query(oldConfig);
-  if (oldUser.rowCount === 0) {
-    throw new Error('L\'utilisateur n\'existe pas !');
-  }
 
   let oldFirstname = oldUser.rows[0].firstname;
   if (newUser.firstname) {
