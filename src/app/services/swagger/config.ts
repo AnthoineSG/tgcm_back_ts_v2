@@ -26,5 +26,5 @@ export const options = {
       // },
     ],
   },
-  apis: ['./api/app/routers/*'],
+  apis: ['./src/app/routers/*/*'],
 };
