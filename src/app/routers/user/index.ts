@@ -11,6 +11,8 @@ import {
   logoutController,
 } from '../../controllers';
 
+import { userConnect } from '../../middlewares';
+
 const userRouter = Router();
 
 userRouter
@@ -62,7 +64,7 @@ userRouter
     *      404:
     *         description: Error not found
     */
-  .get(getOneUserController);
+  .get(userConnect, getOneUserController);
 
 userRouter
   .route('/user/:email/product')
@@ -91,7 +93,7 @@ userRouter
     *      404:
     *         description: Error not found
     */
-  .get(getUserWithBasketController);
+  .get(userConnect, getUserWithBasketController);
 
 userRouter
   .route('/user')
@@ -207,7 +209,7 @@ userRouter
     *      404:
     *         description: Error not found
     */
-  .patch(updateUserController);
+  .patch(userConnect, updateUserController);
 
 userRouter
   .route('/user/:email')
@@ -236,7 +238,7 @@ userRouter
     *      404:
     *         description: Error not found
     */
-  .delete(deleteUserController);
+  .delete(userConnect, deleteUserController);
 
 userRouter
   .route('/user/login')

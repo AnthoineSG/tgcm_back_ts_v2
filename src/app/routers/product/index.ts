@@ -9,6 +9,8 @@ import {
   getRandomProductController,
 } from '../../controllers';
 
+import { userConnect } from '../../middlewares';
+
 const productRouter = Router();
 
 productRouter
@@ -138,11 +140,11 @@ productRouter
     *                       description: The product name.
     *                       example: "Masque pour cheveux"
     */
-  .post(addProductInBasketController);
+  .post(userConnect, addProductInBasketController);
 
 productRouter
   .route('/product/user')
-  .delete(deleteProductInbasketController);
+  .delete(userConnect, deleteProductInbasketController);
 
 productRouter
   .route('/product/sub_category/:name')

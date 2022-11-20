@@ -38,7 +38,7 @@ export const loginController = async (
     delete result.password;
 
     // ! generate jsonWebToken
-    const JwtAccessToken = process.env.JTW_ACCESS_TOKEN ?? '';
+    const JwtAccessToken = process.env.JTW_ACCESS_TOKEN || '';
     const userInfosToken = {
       id: result.id,
       email: result.email,

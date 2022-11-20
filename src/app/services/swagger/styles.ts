@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 export const cssOptions = {
   customCss: `
     .swagger-ui .topbar { background-color: #1C213C; border-bottom: 20px solid #65938B; }

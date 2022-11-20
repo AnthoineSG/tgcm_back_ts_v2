@@ -7,7 +7,6 @@ export const options = {
       description: 'API pour get les infos lier a l\'apo d\'O\'clock',
       contact: {
         name: 'TheGoodChoiceMarket Teams',
-        // eslint-disable-next-line max-len
         url: 'https://github.com/O-clock-Cassini/projet-07-the-good-choice-market-back/issues',
       },
       license: {

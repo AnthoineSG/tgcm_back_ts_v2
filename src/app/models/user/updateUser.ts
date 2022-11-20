@@ -10,8 +10,7 @@ export const updateUserDatamapper = async (email: string, newUser: User) => {
   };
   const oldUser = await pool.query(oldConfig);
   if (oldUser.rowCount === 0) {
-    // eslint-disable-next-line quotes
-    throw new Error("L'utilisateur n'existe pas !");
+    throw new Error('L\'utilisateur n\'existe pas !');
   }
 
   let oldFirstname = oldUser.rows[0].firstname;
