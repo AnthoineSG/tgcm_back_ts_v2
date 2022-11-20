@@ -527,4 +527,5 @@ export const cssOptions = {
       linear-gradient(150deg, #696969 40%, rgba(0, 0, 0, 0) 41%),
       linear-gradient(270deg, #696969 30%, rgba(0, 0, 0, 0) 31%);
     background-color: #b6b6b6;
-` };
+`,
+};

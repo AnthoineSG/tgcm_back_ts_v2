@@ -55,8 +55,16 @@ export const updateUserDatamapper = async (email: string, newUser: User) => {
       WHERE "user"."email" = $10
       RETURNING *;`,
     values: [
-      oldFirstname, oldLastname, oldBirthday, oldPassword, oldPhoneNumber,
-      oldAddress, oldPostalCode, oldCity, oldCountry, email,
+      oldFirstname,
+      oldLastname,
+      oldBirthday,
+      oldPassword,
+      oldPhoneNumber,
+      oldAddress,
+      oldPostalCode,
+      oldCity,
+      oldCountry,
+      email,
     ],
   };
   const result = await pool.query(config);

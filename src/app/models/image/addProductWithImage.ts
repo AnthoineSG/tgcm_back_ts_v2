@@ -25,10 +25,23 @@ export const addProductWithImageDatamapper = async (
       )
       RETURNING *;`,
     values: [
-      body.name, body.description, url, body.location, body.barcode,
-      body.expiration_date, body.height, body.width, body.depth, body.weight,
-      body.size, body.price_ht, body.price_promo, body.price_kg,
-      body.tva_id, body.brand_id, body.sub_category_id,
+      body.name,
+      body.description,
+      url,
+      body.location,
+      body.barcode,
+      body.expiration_date,
+      body.height,
+      body.width,
+      body.depth,
+      body.weight,
+      body.size,
+      body.price_ht,
+      body.price_promo,
+      body.price_kg,
+      body.tva_id,
+      body.brand_id,
+      body.sub_category_id,
     ],
   };
   const result = await pool.query(config);

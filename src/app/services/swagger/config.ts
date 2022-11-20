@@ -4,7 +4,7 @@ export const options = {
     info: {
       title: 'The Good Choice Market',
       version: '1.0.0',
-      description: 'API pour get les infos lier a l\'apo d\'O\'clock',
+      description: "API pour get les infos lier a l'apo d'O'clock",
       contact: {
         name: 'TheGoodChoiceMarket Teams',
         url: 'https://github.com/O-clock-Cassini/projet-07-the-good-choice-market-back/issues',

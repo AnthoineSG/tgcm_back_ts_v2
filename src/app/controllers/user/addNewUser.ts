@@ -25,7 +25,9 @@ export const addNewUserController = async (
       return res.status(400).json({ error: 'L\'email est obligatoire !' });
     }
     if (!newUser.password) {
-      return res.status(400).json({ error: 'Le mot de passe est obligatoire !' });
+      return res
+        .status(400)
+        .json({ error: 'Le mot de passe est obligatoire !' });
     }
     if (!newUser.phone_number) {
       // eslint-disable-next-line camelcase

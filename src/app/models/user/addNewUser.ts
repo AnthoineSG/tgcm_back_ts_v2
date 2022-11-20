@@ -12,9 +12,16 @@ export const addNewUserDatamapper = async (user: User) => {
       )
       RETURNING *;`,
     values: [
-      user.firstname, user.lastname, user.birthday, user.email,
-      user.password, user.phone_number, user.address,
-      user.postal_code, user.city, user.country,
+      user.firstname,
+      user.lastname,
+      user.birthday,
+      user.email,
+      user.password,
+      user.phone_number,
+      user.address,
+      user.postal_code,
+      user.city,
+      user.country,
     ],
   };
   const savedUser = await pool.query(config);

@@ -2,11 +2,11 @@ import { NextFunction, Request, Response } from 'express';
 import { productSchema } from '../../services';
 
 /**
-* Middleware qui verifie que les data du formulaire sont valide
-* @param {*} req Recupere le body du formulaire et le compare avec le schema predefinie
-* @param {*} next Si tout est ok passe a la suite
-* @returns Retourne en cas d'erreur
-*/
+ * Middleware qui verifie que les data du formulaire sont valide
+ * @param {*} req Recupere le body du formulaire et le compare avec le schema predefinie
+ * @param {*} next Si tout est ok passe a la suite
+ * @returns Retourne en cas d'erreur
+ */
 export const productValidator = (
   req: Request,
   res: Response,
@@ -14,10 +14,9 @@ export const productValidator = (
 ) => {
   try {
     const body = productSchema.validate(req.body);
-    if(body.error) {
+    if (body.error) {
       throw new Error('Le schema du product est invalide');
-    }
-    else{
+    } else {
       next();
     }
   } catch (error) {
