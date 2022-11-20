@@ -6,6 +6,8 @@ import {
   addProductWithImageController,
 } from '../../controllers';
 
+import { productValidator } from '../../middlewares';
+
 const imageRouter = Router();
 
 imageRouter
@@ -28,7 +30,7 @@ imageRouter
     *      404:
     *         description: Error not found
     */
-  .post(uploadImageController);
+  .post(productValidator, uploadImageController);
 
 imageRouter
   .route('/image/find')

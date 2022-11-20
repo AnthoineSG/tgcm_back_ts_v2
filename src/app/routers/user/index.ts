@@ -11,7 +11,7 @@ import {
   logoutController,
 } from '../../controllers';
 
-import { userConnect } from '../../middlewares';
+import { userConnect, userValidator, patchUserValidator, loginValidator } from '../../middlewares';
 
 const userRouter = Router();
 
@@ -153,7 +153,7 @@ userRouter
     *      404:
     *         description: Error not found
     */
-  .post(addNewUserController);
+  .post(userValidator, addNewUserController);
 
 userRouter
   .route('/user/:email')
@@ -209,7 +209,7 @@ userRouter
     *      404:
     *         description: Error not found
     */
-  .patch(userConnect, updateUserController);
+  .patch(userConnect, patchUserValidator, updateUserController);
 
 userRouter
   .route('/user/:email')
@@ -274,7 +274,7 @@ userRouter
     *      404:
     *         description: Error not found
     */
-  .post(loginController);
+  .post(loginValidator, loginController);
 
 userRouter
   .route('/user/logout')
