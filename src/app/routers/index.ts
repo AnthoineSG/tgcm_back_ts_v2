@@ -10,6 +10,10 @@ import userRouter from './user';
 
 const router = Router();
 
+router.get('/', (req: Request, res: Response) => {
+  return res.status(200).render('homepage');
+});
+
 router.use('/api', brandRouter);
 router.use('/api', categoryRouter);
 router.use('/api', companyRouter);
