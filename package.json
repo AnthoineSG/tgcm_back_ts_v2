@@ -2,9 +2,10 @@
   "name": "tgcm_back_ts_v2",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build && node build/index.js",
+    "start": "npm run dist && node dist/index.js",
     "dev": "nodemon",
     "create": "cd data && bash createDB.sh",
     "deploy": "cd data/sqitch && bash sqitch-deploy.sh",
@@ -12,7 +13,7 @@
     "verify": "cd data/sqitch && bash sqitch-verify.sh",
     "lint": "eslint . --ext .ts --fix",
     "format": "prettier --write \"**/*.+(js|ts|json)\"",
-    "build": "rimraf ./build && tsc"
+    "build": "rimraf ./dist && tsc"
   },
   "keywords": [],
   "author": "",
